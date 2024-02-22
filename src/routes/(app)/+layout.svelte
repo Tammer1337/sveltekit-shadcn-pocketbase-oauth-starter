@@ -3,7 +3,7 @@
 	import { Button } from '$lib/index';
 	import { ModeWatcher } from 'mode-watcher';
 	import { toggleMode } from 'mode-watcher';
-	import { UtensilsCrossed, Sun, MoonStar } from 'lucide-svelte';
+	import { Sun, MoonStar, FileCode } from 'lucide-svelte';
 
 	import type { LayoutServerData } from './$types';
 
@@ -17,10 +17,21 @@
 	>
 		<div class="container flex h-14 items-center">
 			<div class="mr-4 flex">
-				<a href="/" class="mr-6 flex items-center space-x-2"
-					><UtensilsCrossed class="text-primary" />
-					<span class="text-[15px] text-base font-bold">Eaty</span></a
+				<a href="/" class="mr-12 flex items-center space-x-2"
+					><FileCode class="text-primary" />
+					<span class="text-[15px] text-base font-bold">Sveltekit + Pocketbase Boiler</span></a
 				>
+				<nav class="flex items-center gap-6 text-sm">
+					{#if data.user}
+						<a
+							href="/settings"
+							class="text-foreground/60 transition-colors hover:text-foreground/80">Protected</a
+						>
+					{/if}
+					<a href="/about" class="text-foreground/60 transition-colors hover:text-foreground/80"
+						>About</a
+					>
+				</nav>
 			</div>
 			<div class="flex flex-1 items-center justify-end space-x-2 sm:space-x-4">
 				{#if data.user === undefined}
