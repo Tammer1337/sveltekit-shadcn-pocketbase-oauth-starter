@@ -14,6 +14,6 @@
 <p class="leading-7 [&:not(:first-child)]:mt-6">
 	Big thanks to the repository from <a
 		href="https://github.com/AdrianGonz97/pocketbase-sveltekit-oauth-demo"
-		>pocketbase-sveltekit-oauth-demo from AdrianGonz97</a
+		>pocketbase-sveltekit-oauth-demo AdrianGonz97</a
 	> which gave me a decent starting point. Most of the OAuth code is from this repository.
 </p>
