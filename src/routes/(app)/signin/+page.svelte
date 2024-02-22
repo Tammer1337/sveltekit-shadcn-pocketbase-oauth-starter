@@ -5,7 +5,6 @@
 
 	export let data: PageServerData;
 	$: ({ providers } = data);
-	$: console.log(providers);
 </script>
 
 {#if providers}
