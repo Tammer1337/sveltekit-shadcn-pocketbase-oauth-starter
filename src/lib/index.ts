@@ -1,1 +1,4 @@
-// place files you want to import through the `$lib` alias in this folder.
+import * as Avatar from '$lib/components/ui/avatar';
+import { Button } from '$lib/components/ui/button';
+
+export { Avatar, Button };

@@ -22,9 +22,14 @@ export const GET: RequestHandler = async ({ locals, url, cookies }) => {
 	cookies.delete('provider', { path: '/' });
 
 	try {
-		await locals.pb
+		const oauthInfo = await locals.pb
 			.collection('users')
 			.authWithOAuth2Code(provider.name, code, provider.codeVerifier, PUBLIC_REDIRECT_URI);
+		if (oauthInfo.meta?.avatarUrl) {
+			locals.pb
+				.collection('users')
+				.update(oauthInfo.record.id, { oauthImage: oauthInfo.meta?.avatarUrl });
+		}
 	} catch (err) {
 		console.error(err);
 		throw error(500, 'Something went wrong logging in');
